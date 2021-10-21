@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @RestController
 public class Controller {
 
@@ -50,6 +51,18 @@ public class Controller {
         return counter;
     }
 
+    @GetMapping("/specialCharacters")
+    public int findSpecialCharacters(@RequestParam ("text") String text){
+        int counter = 0;
+        char sign;
 
+        for(int i = 0; i < text.length(); i++){
+            sign = text.charAt(i);
+            if( !Character.isDigit(sign)  && !Character.isLetter(sign) && !Character.isWhitespace(sign) )
+                counter++;
+        }
+
+        return counter;
+    }
 
 }
