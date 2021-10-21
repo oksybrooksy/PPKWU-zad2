@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controller {
 
     @GetMapping("/CapitalLetters")
-    public int findCapitalLetters(@RequestParam ("text") String text){
+    public String findCapitalLetters(@RequestParam ("text") String text){
         int counter = 0;
         char sign;
 
@@ -20,11 +20,11 @@ public class Controller {
                 counter++;
         }
 
-        return counter;
+        return "Capital letters: " + counter;
     }
 
     @GetMapping("/lowercaseLetters")
-    public int findLowercaseLetters(@RequestParam ("text") String text){
+    public String findLowercaseLetters(@RequestParam ("text") String text){
         int counter = 0;
         char sign;
 
@@ -34,11 +34,11 @@ public class Controller {
                 counter++;
         }
 
-        return counter;
+        return "Lowercase letters: " + counter;
     }
 
     @GetMapping("/digits")
-    public int findDigits(@RequestParam ("text") String text){
+    public String findDigits(@RequestParam ("text") String text){
         int counter = 0;
         char sign;
 
@@ -48,11 +48,11 @@ public class Controller {
                 counter++;
         }
 
-        return counter;
+        return "Digits: " + counter;
     }
 
     @GetMapping("/specialCharacters")
-    public int findSpecialCharacters(@RequestParam ("text") String text){
+    public String findSpecialCharacters(@RequestParam ("text") String text){
         int counter = 0;
         char sign;
 
@@ -62,7 +62,7 @@ public class Controller {
                 counter++;
         }
 
-        return counter;
+        return "Special characters: " + counter;
     }
 
 }
