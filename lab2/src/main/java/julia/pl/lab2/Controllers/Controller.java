@@ -22,5 +22,19 @@ public class Controller {
         return counter;
     }
 
+    @GetMapping("/lowercaseLetters")
+    public int findLowercaseLetters(@RequestParam ("text") String text){
+        int counter = 0;
+        char sign;
+
+        for(int i = 0; i < text.length(); i++){
+            sign = text.charAt(i);
+            if( Character.isLowerCase(sign) )
+                counter++;
+        }
+
+        return counter;
+    }
+
 
 }
