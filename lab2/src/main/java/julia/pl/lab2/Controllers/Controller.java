@@ -36,5 +36,20 @@ public class Controller {
         return counter;
     }
 
+    @GetMapping("/digits")
+    public int findDigits(@RequestParam ("text") String text){
+        int counter = 0;
+        char sign;
+
+        for(int i = 0; i < text.length(); i++){
+            sign = text.charAt(i);
+            if( Character.isDigit(sign) )
+                counter++;
+        }
+
+        return counter;
+    }
+
+
 
 }
